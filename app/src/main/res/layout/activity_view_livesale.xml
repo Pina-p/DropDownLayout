@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitiy.ViewLiveSellingList">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:src="@drawable/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Live တွင် ရောင်းချနေသောပစ္စည်းများ"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"
+        app:layout_constraintLeft_toRightOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="နာမည် (သို့) Live Code ဖြင့်ရှာရန်"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="16dp"
+        android:textColorHint="@color/gray"
+        android:textSize="16sp"
+        android:drawablePadding="10dp"
+        android:paddingEnd="10dp"
+        android:drawableEnd="@drawable/search"
+        android:theme="@style/MyEditTextTheme"
+        android:background="@drawable/border_et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+    <TextView
+        android:id="@+id/tvProductQunatity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ပစ္စည်း 8 ခု"
+        android:textColor="@color/gray"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/etSearch"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProductList"
+        tools:listitem="@layout/product_list_item"
+        tools:itemCount="10"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height ="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProductQunatity"
+        app:layout_constraintBottom_toTopOf="@id/llLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <View
+            android:id="@+id/view"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnChoose"
+        android:layout_marginStart="10dp"
+        android:layout_width="150dp"
+        app:cornerRadius="10dp"
+        android:layout_height="60dp"
+        android:text="ပစ္စည်းစာရင်းမှရွေးရန်"
+        android:gravity="center"
+        app:icon="@drawable/choose"
+        app:iconGravity="textStart"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/view"
+        android:backgroundTint="@color/yellow" />
+<com.google.android.material.button.MaterialButton
+        android:id="@+id/btnQuickAdd"
+        android:layout_marginEnd="10dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="အမြန်ထည့်ရန်"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/quickadd"
+        app:iconGravity="textStart"
+        android:textSize="12sp"
+    android:backgroundTint="@color/original_blue"
+        app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/view"
+    app:layout_constraintRight_toRightOf="parent"
+    android:gravity="center"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
