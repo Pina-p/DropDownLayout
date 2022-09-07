@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,6 +47,10 @@ class FillLiveCodeBottomSheet : BottomSheetDialogFragment() {
             ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
             )
         var rvFillLiveCode = view.findViewById<RecyclerView>(R.id.rvFillLiveCode)
+        var ivClose = view.findViewById<ImageView>(R.id.ivClose)
+        ivClose.setOnClickListener {
+            dialog?.dismiss()
+        }
         rvFillLiveCode.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(view.context)

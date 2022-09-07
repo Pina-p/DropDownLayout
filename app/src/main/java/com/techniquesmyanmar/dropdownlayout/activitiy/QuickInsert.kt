@@ -37,16 +37,18 @@ class QuickInsert : AppCompatActivity() {
             ColorList("#9246a5"),
             ColorList("#68a526")
 
-
-
         )
 
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
 
         binding.rvColor.apply {
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(this@QuickInsert,5)
             adapter = ColorAdapter(data)
         }
+
     }
 
 //    private fun setTint(d: Drawable,color: Int) : Drawable{

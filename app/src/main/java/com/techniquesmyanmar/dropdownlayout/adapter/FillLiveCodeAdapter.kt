@@ -55,6 +55,7 @@ class FillLiveCodeAdapter (var lists: List<ProductList>) :
 
             if(list.liveCode.isEmpty()){
                 binding.etLivecode.setText(" ")
+
                 //Collections.swap(lists,0,adapterPosition)
                 Log.d("List", "bind: $lists")
             }

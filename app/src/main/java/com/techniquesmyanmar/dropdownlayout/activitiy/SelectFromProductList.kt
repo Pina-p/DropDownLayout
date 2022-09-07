@@ -55,6 +55,7 @@ class SelectFromProductList : AppCompatActivity() {
             //Log.d("Check", "onCreate: $check")
         }
 
+        binding.etSearch.setBackgroundResource(R.drawable.search_border)
         binding.rvCheckboxProductList.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@SelectFromProductList)
@@ -67,7 +68,9 @@ class SelectFromProductList : AppCompatActivity() {
             noteBottomSheetFragment.show(supportFragmentManager,"Note Bottom Sheet Fragment")
         }
 
-
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
 
     }
 }

@@ -4,15 +4,16 @@ import android.graphics.*
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.techniquesmyanmar.dropdownlayout.R
+import com.techniquesmyanmar.dropdownlayout.databinding.ActivityMainBinding
+import com.techniquesmyanmar.dropdownlayout.databinding.FillLivecodeItemBinding
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var mbitmap : Bitmap
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
     }
 }
