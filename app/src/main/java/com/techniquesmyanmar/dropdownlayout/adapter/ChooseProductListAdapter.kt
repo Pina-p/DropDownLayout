@@ -1,6 +1,7 @@
 package com.techniquesmyanmar.dropdownlayout.adapter
 
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.RoundedCorner
 import android.view.ViewGroup
@@ -12,18 +13,35 @@ import com.techniquesmyanmar.dropdownlayout.databinding.ChooseProductListItemBin
 import com.techniquesmyanmar.dropdownlayout.databinding.ProductListItemBinding
 import com.techniquesmyanmar.dropdownlayout.model.ProductList
 
-class ChooseProductListAdapter (val list: List<ProductList>) :
+class ChooseProductListAdapter (val list: List<ProductList>,check:Boolean) :
     RecyclerView.Adapter<ChooseProductListAdapter.ChooseProductHolder>() {
+    var selected = -1
+    var checked = check
 
     inner class ChooseProductHolder(private val binding: ChooseProductListItemBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(list : ProductList){
-            binding.tvProductModel.text = list.productModel
+            binding.tvLiveCode.text = list.liveCode
             binding.tvProductName.text = list.productName
             binding.tvProductPrice.text = list.productPrice
             Glide.with(itemView.context)
                 .load(list.productImage)
                 .into(binding.ivImage)
+
+
+            if(checked == true){
+                binding.cbChooseAll.isChecked = true
+            }
+
+            binding.root.setOnClickListener {
+                binding.cbChooseAll.isChecked = !binding.cbChooseAll.isChecked
+
+//                if(binding.cbChooseAll.isChecked){
+//                    selected = adapterPosition
+//                    notifyDataSetChanged()
+//                }
+            }
+
 
         }
     }

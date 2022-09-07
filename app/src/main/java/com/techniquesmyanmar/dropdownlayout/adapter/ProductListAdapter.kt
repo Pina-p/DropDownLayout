@@ -17,7 +17,7 @@ class ProductListAdapter (val list: List<ProductList>) :
         inner class ProductListHolder(private val binding: ProductListItemBinding):RecyclerView.ViewHolder(binding.root){
 
             fun bind(list : ProductList){
-                binding.tvProductModel.text = list.productModel
+                binding.tvLiveCode.text = list.liveCode
                 binding.tvProductName.text = list.productName
                 binding.tvProductPrice.text = list.productPrice
                 Glide.with(itemView.context)

@@ -42,7 +42,7 @@
         app:layout_constraintLeft_toRightOf="@id/ivImage"/>
 
     <TextView
-        android:id="@+id/tvProductModel"
+        android:id="@+id/tvLiveCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="IIoeo"
@@ -59,7 +59,7 @@
         android:layout_marginLeft="10dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvProductModel"
+        app:layout_constraintTop_toBottomOf="@id/tvLiveCode"
         app:layout_constraintLeft_toRightOf="@id/ivImage"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

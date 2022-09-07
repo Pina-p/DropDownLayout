@@ -106,15 +106,42 @@
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
+    <CheckBox
+        android:id="@+id/cbChooseAll"
+        android:layout_width="24dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/checkbox_select_unselect"
+        android:button="@null"
+        android:layout_marginLeft="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_height="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hsvScroll"/>
+
+    <TextView
+        android:id="@+id/tvChooseAll"
+        android:text="အားလုံးရွေးရန်"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/cbChooseAll"
+        app:layout_constraintBottom_toBottomOf="@id/cbChooseAll"
+        app:layout_constraintLeft_toRightOf="@id/cbChooseAll"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCheckboxProductList"
         tools:listitem="@layout/choose_product_list_item"
         tools:itemCount="8"
+        android:paddingBottom="80dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hsvScroll"/>
+        app:layout_constraintTop_toBottomOf="@id/cbChooseAll"/>
 
     <LinearLayout
         android:background="@color/white"
