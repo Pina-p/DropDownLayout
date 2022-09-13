@@ -243,7 +243,7 @@
                                 android:layout_height="24dp"
                                 app:cardCornerRadius="60dp">
                                 <ImageView
-
+                                    android:src="@drawable/colorful_icon"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"/>
                             </androidx.cardview.widget.CardView>
