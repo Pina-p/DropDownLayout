@@ -14,6 +14,9 @@
         android:theme="@style/Theme.DropDownLayout"
         tools:targetApi="31">
         <activity
+            android:name=".LiveJoinLoading"
+            android:exported="false" />
+        <activity
             android:name=".activitiy.QuickInsert"
             android:exported="false" />
         <activity
@@ -21,6 +24,9 @@
             android:exported="false" />
         <activity
             android:name=".activitiy.ViewLiveSellingList"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activitiy.FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +35,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activitiy.LiveSaleActivity"
+            android:exported="false"></activity>
+        <activity
             android:name=".activitiy.MainActivity"
             android:exported="true" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
