@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_marginHorizontal="10dp"
     android:layout_height="match_parent"
     tools:context=".activitiy.QuickInsert">
 
@@ -13,13 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="အမြန်ထည့်မည်"
@@ -32,14 +33,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/ivBack"/>
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@id/ivBack">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/tvUploadImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ပုံတင်ရန်"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/ivBack"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
@@ -47,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(သို့) အရောင်ရွေးပါ"
-        android:layout_marginLeft="82dp"
+        android:layout_marginLeft="100dp"
         app:layout_constraintLeft_toRightOf="@id/tvUploadImage"
         app:layout_constraintTop_toTopOf="@id/tvUploadImage"
         app:layout_constraintBottom_toBottomOf="@id/tvUploadImage"/>
@@ -57,7 +67,7 @@
         android:src="@drawable/image_background"
         android:layout_width="115dp"
         android:layout_height="115dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/tvUploadImage"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -72,25 +82,23 @@
         app:layout_constraintTop_toTopOf="@id/ivCameraBg"
         app:layout_constraintBottom_toBottomOf="@id/ivCameraBg"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvColor"
-        tools:listitem="@layout/color_list_item"
-        tools:itemCount="3"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/ivCameraBg"
-        app:layout_constraintTop_toBottomOf="@id/tvChooseColor"
-        app:layout_constraintBottom_toBottomOf="@id/ivCameraBg"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvColor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@id/ivCameraBg"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/tvChooseColor"
+                app:layout_constraintTop_toBottomOf="@id/tvChooseColor"
+                tools:itemCount="3"
+                tools:listitem="@layout/color_list_item" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clLayout"
             android:layout_width="match_parent"
             android:layout_marginTop="30dp"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="15dp"
             android:padding="20dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_bg"
@@ -101,6 +109,7 @@
             <TextView
                 android:id="@id/tvLiveCode"
                 android:text="*Live Code"
+                android:textColor="@color/gray"
                 android:textSize="35sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -110,53 +119,53 @@
             <TextView
                 android:id="@+id/tvExample"
                 android:text="e.g. GG78,NJ39"
+                android:textColor="#4D4D4D"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 app:layout_constraintTop_toBottomOf="@id/tvLiveCode"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
             <ImageView
                 android:id="@+id/ivRefresh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/refresh"
-
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/tvLiveCode"
-                app:layout_constraintTop_toTopOf="@id/tvLiveCode"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
         android:background="@drawable/rectangle_bg"
         android:padding="10dp"
+        android:textSize="16sp"
         android:id="@+id/etProductName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:hint="*ပစ္စည်းအမည်"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintTop_toBottomOf="@+id/clLayout"/>
 
     <EditText
         android:background="@drawable/rectangle_bg"
         android:padding="10dp"
+        android:textSize="16sp"
         android:id="@+id/etBuyingPrice"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:hint="*ဝယ်စျေး"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintTop_toBottomOf="@+id/etProductName"/>
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ks"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
+        android:layout_marginRight="25dp"
+        android:textColor="#4C4C4C"
+        android:textSize="16sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/etBuyingPrice"
         app:layout_constraintBottom_toBottomOf="@id/etBuyingPrice"/>
@@ -166,27 +175,27 @@
         android:id="@+id/etSellingPrice"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:hint="*ရောင်းစျေး"
-        android:layout_marginHorizontal="10dp"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintTop_toBottomOf="@+id/etBuyingPrice"/>
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ks"
-        android:layout_marginRight="20dp"
-        android:textSize="20sp"
-        android:textColor="@color/gray"
+        android:layout_marginRight="25dp"
+        android:textSize="16sp"
+        android:textColor="#4C4C4C"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/etSellingPrice"
         app:layout_constraintBottom_toBottomOf="@id/etSellingPrice"/>
 
     <ImageView
         android:id="@+id/ivMinus"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/minus"
@@ -197,8 +206,8 @@
 
     <ImageView
         android:id="@+id/ivPlus"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/plus"
@@ -207,39 +216,56 @@
         app:layout_constraintTop_toBottomOf="@id/etSellingPrice"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/rectangle_bg"
+        app:layout_constraintLeft_toRightOf="@id/ivMinus"
+        app:layout_constraintRight_toLeftOf="@id/ivPlus"
+        app:layout_constraintTop_toTopOf="@id/ivMinus" >
     <TextView
         android:id="@+id/tvQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text = "0"
-        android:textSize="40sp"
-        app:layout_constraintLeft_toRightOf="@id/ivMinus"
-        app:layout_constraintRight_toLeftOf="@id/ivPlus"
-        app:layout_constraintTop_toTopOf="@id/ivMinus" />
+        android:textSize="35sp"
+        android:textColor="#A7A7A7"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tvCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text = "အရေအတွက်"
+        android:textColor="#909090"
         android:textSize="16sp"
-        app:layout_constraintLeft_toRightOf="@id/ivMinus"
-        app:layout_constraintRight_toLeftOf="@id/ivPlus"
-        app:layout_constraintTop_toBottomOf="@id/tvQuantity"
-        app:layout_constraintBottom_toBottomOf="@id/ivMinus"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvQuantity"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginHorizontal="10dp"
-        app:cornerRadius="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="15dp"
+        app:cornerRadius="15dp"
         android:text="သိမ်းဆည်းမည်"
-        app:icon="@drawable/ic_baseline_save_24"
+        android:textSize="16sp"
+        app:icon="@drawable/ic_save"
         app:iconGravity="textStart"
-        android:backgroundTint="@color/original_blue"
-        app:layout_constraintTop_toBottomOf="@id/ivMinus"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:backgroundTint="#2E6EFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

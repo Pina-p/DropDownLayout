@@ -5,12 +5,19 @@
       <map>
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable-v24/border_et.xml" value="0.118" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/arrow_down.xml" value="0.125" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/bottom_fragment_bg.xml" value="0.1285" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/checkbox_select_unselect.xml" value="0.118" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/chip_bg.xml" value="0.118" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/circle_background.xml" value="0.125" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/color_image_corner.xml" value="0.118" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/comment.xml" value="0.125" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/custom_button_white.xml" value="0.135" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1285" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/ic_checkbox_selected.xml" value="0.118" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/ic_close.xml" value="0.135" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/ic_fragment_close.xml" value="0.135" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/ic_search.xml" value="0.135" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/ic_search_close.xml" value="0.135" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/image_background.xml" value="0.118" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/pix_24.xml" value="0.125" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/drawable/rectangle_bg.xml" value="0.118" />
@@ -25,17 +32,19 @@
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_live_join_loading.xml" value="0.1693840579710145" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_live_sale.xml" value="0.16032608695652173" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_quick_insert.xml" value="0.2" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_quick_insert.xml" value="0.25" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_sale_in_live.xml" value="0.16032608695652173" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_select_from_product_list.xml" value="0.22" />
-        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_view_livesale.xml" value="0.14" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/activity_view_livesale.xml" value="0.25" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/choose_product_list_item.xml" value="0.25" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/color_list_item.xml" value="0.75" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/comment_card.xml" value="0.16032608695652173" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/fill_livecode_bottom_sheet.xml" value="0.25" />
-        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/fill_livecode_item.xml" value="0.25" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/fill_livecode_item.xml" value="0.18" />
         <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/live_sale_card.xml" value="0.1" />
-        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/product_list_item.xml" value="0.16032608695652173" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/menu_layout.xml" value="0.18568840579710144" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/layout/product_list_item.xml" value="0.33" />
+        <entry key="..\:/Androidbooster/DropDownLayout/app/src/main/res/menu/popup_menu.xml" value="0.20102564102564102" />
       </map>
     </option>
   </component>

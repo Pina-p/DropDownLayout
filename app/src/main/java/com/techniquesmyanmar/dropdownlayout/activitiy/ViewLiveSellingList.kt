@@ -2,10 +2,14 @@ package com.techniquesmyanmar.dropdownlayout.activitiy
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.techniquesmyanmar.dropdownlayout.R
 import com.techniquesmyanmar.dropdownlayout.adapter.ProductListAdapter
@@ -24,12 +28,12 @@ class ViewLiveSellingList : AppCompatActivity() {
 //          DrawableCompat.setTint(wrappedDrawable, Color.GREEN)
 
         val data: ArrayList<ProductList> = arrayListOf(
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
 
 
         )
@@ -56,6 +60,18 @@ class ViewLiveSellingList : AppCompatActivity() {
             finish()
         }
 
+        binding.etSearch.doAfterTextChanged {
+            binding.ivSearchOrClose.setImageDrawable(resources.getDrawable(R.drawable.ic_search_close))
+            binding.ivSearchOrClose.setOnClickListener {
+                binding.etSearch.setText("")
+                binding.ivSearchOrClose.setImageResource(R.drawable.ic_search)
+            }
+        }
+
         binding.etSearch.setBackgroundResource(R.drawable.search_border)
+
+
+
+
     }
 }

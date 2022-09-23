@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     tools:context=".activitiy.SelectFromProductList">
 
@@ -47,7 +46,6 @@
         android:textSize="16sp"
         android:drawablePadding="10dp"
         android:paddingEnd="10dp"
-        android:drawableEnd="@drawable/search"
         android:theme="@style/MyEditTextTheme"
         android:background="@drawable/border_et"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +53,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivBack" />
 
+    <ImageView
+        android:id="@+id/ivSearchOrClose"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintRight_toRightOf="@id/etSearch"
+        app:layout_constraintTop_toTopOf="@id/etSearch"
+        app:layout_constraintBottom_toBottomOf="@id/etSearch"/>
+
     <HorizontalScrollView
         android:id="@+id/hsvScroll"
+        android:layout_marginHorizontal="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -67,7 +77,7 @@
             android:id="@+id/cgCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            app:checkedChip="@+id/chipAll"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etSearch"
             app:singleSelection="true">
@@ -96,8 +106,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipHealthMedicine"
-                android:layout_marginRight="20dp"
-                android:paddingRight="10dp"
+
                 style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,7 +123,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/checkbox_select_unselect"
         android:button="@null"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="16dp"
         android:clickable="true"
         android:focusable="true"
         android:layout_height="24dp"
@@ -125,7 +134,7 @@
         android:id="@+id/tvChooseAll"
         android:text="အားလုံးရွေးရန်"
         android:padding="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/cbChooseAll"
@@ -136,7 +145,8 @@
         android:id="@+id/rvCheckboxProductList"
         tools:listitem="@layout/choose_product_list_item"
         tools:itemCount="8"
-        android:paddingBottom="80dp"
+        android:layout_marginHorizontal="16dp"
+        android:paddingBottom="290dp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -151,7 +161,8 @@
         app:layout_constraintBottom_toBottomOf="parent">
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnContinue"
-            app:cornerRadius="10dp"
+            android:visibility="gone"
+            app:cornerRadius="15dp"
             android:layout_marginHorizontal="20dp"
             android:text="ဆက်သွားမည်"
             android:backgroundTint="@color/original_blue"

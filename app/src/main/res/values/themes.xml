@@ -27,6 +27,10 @@
 
     </style>
 
+    <style name="NoBackgroundDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@null</item>
+    </style>
+
     <style name="CustomCheckboxStyle" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="background">@drawable/checkbox_select_unselect</item>
     </style>

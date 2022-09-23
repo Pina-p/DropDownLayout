@@ -2,58 +2,126 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvImgCard"
+        app:cardElevation="0dp"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
     <ImageView
         android:id="@+id/ivProductImage"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
+        android:scaleType="fitXY"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_launcher_background" />
+    </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/tvProductName"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Purple fruit"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@id/ivProductImage"
-        app:layout_constraintLeft_toRightOf="@id/ivProductImage"/>
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@id/cvImgCard"
+        app:layout_constraintLeft_toRightOf="@id/cvImgCard"/>
 
     <TextView
         android:id="@+id/tvLiveCode"
+        android:textSize="16sp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AH87"
-        android:textColor="#0000FF"
+        android:textColor="#487FFF"
+        app:layout_constraintBottom_toTopOf="@id/tvProductPrice"
         app:layout_constraintTop_toBottomOf="@id/tvProductName"
-        app:layout_constraintLeft_toRightOf="@id/ivProductImage"/>
+        app:layout_constraintLeft_toRightOf="@id/cvImgCard"/>
 
     <TextView
+        android:textSize="17sp"
         android:id="@+id/tvProductPrice"
         android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="150,000 Ks"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/ivProductImage"
+        app:layout_constraintBottom_toBottomOf="@id/cvImgCard"
         app:layout_constraintTop_toBottomOf="@id/tvLiveCode"
-        app:layout_constraintLeft_toRightOf="@id/ivProductImage"/>
+        app:layout_constraintLeft_toRightOf="@id/cvImgCard"/>
 
     <ImageView
         android:id="@+id/ivMenu"
+        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/threedot"
-        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_menu_icon"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ivProductImage"
-        app:layout_constraintBottom_toBottomOf="@id/ivProductImage"/>
+        app:layout_constraintTop_toTopOf="@id/cvImgCard"
+        app:layout_constraintBottom_toBottomOf="@id/cvImgCard"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_menu"
+        app:cardCornerRadius="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/cvImgCard"
+        app:layout_constraintTop_toTopOf="@id/cvImgCard"
+        app:layout_constraintRight_toRightOf="@id/ivMenu">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ivChangeLiveCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+            <TextView
+                android:id="@+id/tvChangeLiveCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live Code ပြောင်းလဲမည်"
+                app:layout_constraintLeft_toRightOf="@id/ivChangeLiveCode"
+                app:layout_constraintTop_toTopOf="@id/ivChangeLiveCode"
+                app:layout_constraintBottom_toBottomOf="@id/ivChangeLiveCode"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/ivChangeLiveCode"
+                />
+            <ImageView
+                android:id="@+id/ivRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/ivChangeLiveCode"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+            <TextView
+                android:id="@+id/tvRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live Code ပြောင်းလဲမည်"
+                app:layout_constraintLeft_toRightOf="@id/ivRemove"
+                app:layout_constraintTop_toTopOf="@id/ivRemove"
+                app:layout_constraintBottom_toBottomOf="@id/ivRemove"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

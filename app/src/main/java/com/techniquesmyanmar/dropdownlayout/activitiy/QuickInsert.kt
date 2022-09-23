@@ -20,7 +20,7 @@ class QuickInsert : AppCompatActivity() {
 
         val data : ArrayList<ColorList> = arrayListOf(
             ColorList("#fff066"),
-            ColorList("#ff8431"),
+            ColorList("#FFC5DF"),
             ColorList("#88d2ff"),
             ColorList("#d086e2"),
             ColorList("#b3e583"),
