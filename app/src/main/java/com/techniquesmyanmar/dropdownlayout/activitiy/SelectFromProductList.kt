@@ -35,8 +35,8 @@ class SelectFromProductList : AppCompatActivity() {
 
         val data: ArrayList<ProductList> = arrayListOf(
             ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.product_image,"Purple fruit","","150,000 Ks"),
-            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Orange fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Yellow fruit","AH86","150,000 Ks"),
             ProductList(R.drawable.product_image,"Purple fruit","","150,000 Ks"),
             ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
             ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
@@ -89,7 +89,7 @@ class SelectFromProductList : AppCompatActivity() {
         }
 
         binding.btnContinue.setOnClickListener {
-            var bottomSheetFragment = FillLiveCodeBottomSheet()
+            var bottomSheetFragment = FillLiveCodeBottomSheet.newInstance("fill","","","",0)
            bottomSheetFragment.show(supportFragmentManager,"Note Bottom Sheet Fragment")
         }
 
@@ -98,7 +98,12 @@ class SelectFromProductList : AppCompatActivity() {
         }
 
         binding.etSearch.doAfterTextChanged {
-            binding.ivSearchOrClose.setImageDrawable(resources.getDrawable(R.drawable.ic_search_close))
+            if(binding.etSearch.text.isEmpty()){
+                binding.ivSearchOrClose.setImageDrawable(resources.getDrawable(R.drawable.ic_search))
+            }else{
+                binding.ivSearchOrClose.setImageDrawable(resources.getDrawable(R.drawable.ic_search_close))
+            }
+
             binding.ivSearchOrClose.setOnClickListener {
                 binding.etSearch.setText("")
                 binding.ivSearchOrClose.setImageResource(R.drawable.ic_search)

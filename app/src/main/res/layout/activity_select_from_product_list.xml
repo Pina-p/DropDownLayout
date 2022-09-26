@@ -161,6 +161,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnContinue"
+            android:stateListAnimator="@null"
             android:visibility="gone"
             app:cornerRadius="15dp"
             android:layout_marginHorizontal="20dp"
