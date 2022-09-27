@@ -45,7 +45,6 @@ class QuickInsert : AppCompatActivity() {
 
         binding.rvColor.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(this@QuickInsert,5)
             adapter = ColorAdapter(data)
         }
 

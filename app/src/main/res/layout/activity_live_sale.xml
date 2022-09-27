@@ -100,7 +100,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/ivRetry"
-                android:src="@drawable/reload"
+                android:src="@drawable/refresh"
                 android:layout_marginRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
