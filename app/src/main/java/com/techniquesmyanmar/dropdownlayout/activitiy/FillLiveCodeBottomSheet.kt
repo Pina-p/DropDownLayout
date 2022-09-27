@@ -3,10 +3,12 @@ package com.techniquesmyanmar.dropdownlayout.activitiy
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,95 +16,83 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.techniquesmyanmar.dropdownlayout.R
 import com.techniquesmyanmar.dropdownlayout.adapter.FillLiveCodeAdapter
+import com.techniquesmyanmar.dropdownlayout.databinding.ActivityLiveJoinLoadingBinding
+import com.techniquesmyanmar.dropdownlayout.databinding.FillLivecodeBottomSheetBinding
 import com.techniquesmyanmar.dropdownlayout.model.ProductList
 
 class FillLiveCodeBottomSheet : BottomSheetDialogFragment() {
 
-//    companion object{
-//        fun newInstance(id: Int): FillLiveCodeBottomSheet{
-//            var args = Bundle()
-//            val fragment =FillLiveCodeBottomSheet()
-//            fragment.arguments = args
-//            return fragment
-//        }
-//    }
+    private lateinit var binding : FillLivecodeBottomSheetBinding
+    companion object{
+        var editOrFill = ""
+        var live_code = ""
+        var product_name = ""
+        var p = ""
+        var image = 0
+        fun newInstance(editFill: String,liveCode :String,productName: String,price: String,img: Int): FillLiveCodeBottomSheet{
+            var args = Bundle()
+            val fragment =FillLiveCodeBottomSheet()
+            fragment.arguments = args
+            editOrFill =  editFill
+            live_code = liveCode
+            product_name = productName
+            p = price
+            image = img
+            return fragment
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fill_livecode_bottom_sheet, container, false)
+        binding = FillLivecodeBottomSheetBinding.inflate(layoutInflater)
+        return binding.root
     }
 
+    override fun getTheme() = R.style.NoBackgroundDialogTheme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val data: MutableList<ProductList> = mutableListOf(
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Orange fruit","","150,000 Ks"),
-            ProductList(R.drawable.image_background,"CC fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"BB fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Example fruit","","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Orange fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"CC fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"BB fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Example fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
             )
-        var rvFillLiveCode = view.findViewById<RecyclerView>(R.id.rvFillLiveCode)
-        var ivClose = view.findViewById<ImageView>(R.id.ivClose)
-        ivClose.setOnClickListener {
+
+
+        binding.ivClose.setOnClickListener {
             dialog?.dismiss()
         }
-        rvFillLiveCode.apply {
+        binding.rvFillLiveCode.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(view.context)
             adapter = FillLiveCodeAdapter(data)
         }
-    }
 
-    @SuppressLint("RestrictedApi")
-    override fun setupDialog(dialog: Dialog, style: Int) {
-        super.setupDialog(dialog, style)
+        if(editOrFill == "edit"){
+            binding.tvInsertLiveCode.text = "Edit Live Code"
+            binding.btnSave.text = "Save"
+            binding.btnSave.layoutParams.width = 140
+            //binding.btnSave.layoutParams = ConstraintLayout.LayoutParams(70,60)
+            binding.rvFillLiveCode.setPadding(0,0,0,30)
+            binding.tvNoLiveCode.visibility = View.GONE
+            val data : MutableList<ProductList>  = mutableListOf(
+                ProductList(image, product_name, live_code,p)
+            )
+            binding.rvFillLiveCode.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(view.context)
+                adapter = FillLiveCodeAdapter(data)
+            }
 
-        val view = LayoutInflater.from(context).inflate(R.layout.fill_livecode_bottom_sheet,null)
-        dialog.setContentView(view)
-
-        val param = (view.parent as View).layoutParams as CoordinatorLayout.LayoutParams
-
-        val behavior = param.behavior
-
-        if (behavior is BottomSheetBehavior<*>) {
-            behavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onStateChanged(bottomSheet: View, newState: Int) {
-                    var state = ""
-                    when (newState) {
-                        BottomSheetBehavior.STATE_DRAGGING -> {
-                            state = "DRAGGING"
-                        }
-                        BottomSheetBehavior.STATE_SETTLING -> {
-                            state = "SETTLING"
-                        }
-                        BottomSheetBehavior.STATE_EXPANDED -> {
-                            state = "EXPANDED"
-                        }
-                        BottomSheetBehavior.STATE_COLLAPSED -> {
-                            state = "COLLAPSED"
-                        }
-
-                        BottomSheetBehavior.STATE_HIDDEN -> {
-                            state = "HIDDEN"
-                            dismiss()
-                            behavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                        }
-
-                    }
-                }
-
-            })
-
-
+        }else if(editOrFill == "fill"){
+            binding.tvNoLiveCode.visibility = View.VISIBLE
         }
+
     }
 }

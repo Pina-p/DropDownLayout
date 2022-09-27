@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.techniquesmyanmar.dropdownlayout.R
@@ -49,9 +51,11 @@ class FillLiveCodeAdapter (var lists: List<ProductList>) :
             binding.etLivecode.setText(list.liveCode)
             binding.tvProductName.text = list.productName
             binding.tvProductPrice.text = list.productPrice
-            Glide.with(itemView.context)
-                .load(list.productImage)
-                .into(binding.ivProductImage)
+
+
+            binding.ivProductImage.load(list.productImage){
+                transformations(RoundedCornersTransformation())
+            }
 
             if(list.liveCode.isEmpty()){
                 binding.etLivecode.setText(" ")

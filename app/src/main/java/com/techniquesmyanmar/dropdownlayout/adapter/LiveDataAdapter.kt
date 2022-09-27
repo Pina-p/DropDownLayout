@@ -33,8 +33,7 @@ class LiveDataAdapter(
     override fun onBindViewHolder(holder: LiveDataHolder, position: Int) {
         holder.bind(liveList[position])
         holder.itemView.setOnClickListener{
-            var intent = Intent(it.context,ViewLiveSellingList::class.java)
-            it.context.startActivity(intent)
+
         }
     }
 

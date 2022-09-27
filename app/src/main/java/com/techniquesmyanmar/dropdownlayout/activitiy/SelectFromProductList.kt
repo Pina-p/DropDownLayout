@@ -1,9 +1,16 @@
 package com.techniquesmyanmar.dropdownlayout.activitiy
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.techniquesmyanmar.dropdownlayout.R
 import com.techniquesmyanmar.dropdownlayout.adapter.ChooseProductListAdapter
@@ -27,27 +34,36 @@ class SelectFromProductList : AppCompatActivity() {
 //        Log.d("Checked", "onCreate: $binding.cgCategory.checkedChipId")
 
         val data: ArrayList<ProductList> = arrayListOf(
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
-            ProductList(R.drawable.image_background,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Orange fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Yellow fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.product_image,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.naruto_profile,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.naruto_profile,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.naruto_profile,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.naruto_profile,"Purple fruit","AH86","150,000 Ks"),
+            ProductList(R.drawable.naruto_profile,"Purple fruit","AH86","150,000 Ks"),
 
             )
+
+
+
         binding.cbChooseAll.setOnClickListener {
             check = binding.cbChooseAll.isChecked
+            if(binding.cbChooseAll.isChecked == true){
+                binding.btnContinue.visibility = View.VISIBLE
+            }else{
+                binding.btnContinue.visibility = View.INVISIBLE
+            }
             binding.rvCheckboxProductList.adapter = ChooseProductListAdapter(data,check)
 
         }
 
+        binding.cgCategory.isSelectionRequired = true
         binding.tvChooseAll.setOnClickListener {
             binding.cbChooseAll.isChecked = !binding.cbChooseAll.isChecked
             check = binding.cbChooseAll.isChecked
@@ -55,22 +71,53 @@ class SelectFromProductList : AppCompatActivity() {
             //Log.d("Check", "onCreate: $check")
         }
 
+
+        LocalBroadcastManager.getInstance(this@SelectFromProductList).registerReceiver(
+            BroadcastReceiver, IntentFilter("btn_control")
+        )
+
+        binding.etSearch.doAfterTextChanged {
+
+        }
         binding.etSearch.setBackgroundResource(R.drawable.search_border)
         binding.rvCheckboxProductList.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@SelectFromProductList)
             adapter = ChooseProductListAdapter(data,check)
+
             Log.d("Check", "onCreate: $check")
         }
 
         binding.btnContinue.setOnClickListener {
-            var noteBottomSheetFragment = FillLiveCodeBottomSheet()
-            noteBottomSheetFragment.show(supportFragmentManager,"Note Bottom Sheet Fragment")
+            var bottomSheetFragment = FillLiveCodeBottomSheet.newInstance("fill","","","",0)
+           bottomSheetFragment.show(supportFragmentManager,"Note Bottom Sheet Fragment")
         }
 
         binding.ivBack.setOnClickListener {
             finish()
         }
 
+        binding.etSearch.doAfterTextChanged {
+            if(binding.etSearch.text.isEmpty()){
+                binding.ivSearchOrClose.setImageDrawable(resources.getDrawable(R.drawable.ic_search))
+            }else{
+                binding.ivSearchOrClose.setImageDrawable(resources.getDrawable(R.drawable.ic_search_close))
+            }
+
+            binding.ivSearchOrClose.setOnClickListener {
+                binding.etSearch.setText("")
+                binding.ivSearchOrClose.setImageResource(R.drawable.ic_search)
+            }
+        }
+    }
+    private val BroadcastReceiver : BroadcastReceiver = object :BroadcastReceiver(){
+        override fun onReceive(p0: Context?, p1: Intent?) {
+            var isChecked = p1?.getIntExtra("isChecked",-1)
+            if(isChecked == 1){
+                binding.btnContinue.visibility = View.VISIBLE
+            }else{
+                binding.btnContinue.visibility = View.INVISIBLE
+            }
+        }
     }
 }

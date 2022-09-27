@@ -38,5 +38,9 @@ class FirstActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.cvAddProduct.setOnClickListener {
+            var intent = Intent(it.context,ViewLiveSellingList::class.java)
+            it.context.startActivity(intent)
+        }
     }
 }

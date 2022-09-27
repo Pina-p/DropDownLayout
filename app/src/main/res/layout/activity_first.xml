@@ -422,6 +422,8 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cvAddProduct"
+                        android:clickable="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/cv_back"
